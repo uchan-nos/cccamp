@@ -1,3 +1,9 @@
+/*
+ * 0.5 秒ごとに LED のパターンを反転させる回路
+ *
+ * Tang Nano 9K での動作の様子を YouTube で公開しています。
+ * https://www.youtube.com/watch?v=d-PA88KCTPU
+ */
 module main(
   input sys_clk,
   input rst_n_raw,
