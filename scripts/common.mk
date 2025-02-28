@@ -17,9 +17,12 @@ impl/pnr/project.fs: build.tcl Makefile
 build.tcl: ${SRCS} Makefile
 	${MAKE_BUILD_TCL} ${SRCS} > build.tcl
 
-.PHONY: flash sram
+.PHONY: flash sram clean
 flash: impl/pnr/project.fs Makefile
 	${GWPROG} flash impl/pnr/project.fs
 
 sram: impl/pnr/project.fs Makefile
 	${GWPROG} sram impl/pnr/project.fs
+
+clean: Makefile
+	rm -rf build.tcl impl
