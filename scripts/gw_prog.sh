@@ -1,16 +1,21 @@
 #!/bin/sh
 
+# programmer_cli.exe をラップして WSL から実行できるようにするスクリプト
+
 if [ $# -lt 1 ]
 then
   echo "Usage: $0 <mode> [<fs file>]"
   exit 1
 fi
 
+echo dirname=$(dirname $0)
+. $(dirname $0)/user.env
+
 mode="$1"
 fs="$2"
 fs_win="$(wslpath -w "$fs")"
 
-cd "/mnt/c/Gowin/Gowin_V1.9.11_x64/Programmer/bin"
+cd $GWPROG_BINDIR
 run_programmer="cmd.exe /C programmer_cli.exe"
 
 if [ "$mode" = "scan" ]
